@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,GACE,WAAY,CACZ,cACF","file":"main.88236a47.chunk.css","sourcesContent":["h1 {\n  color: green;\n  font-size: 40px;\n}\n"]}
