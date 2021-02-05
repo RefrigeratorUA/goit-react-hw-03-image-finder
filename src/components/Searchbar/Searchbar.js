@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { toast, Zoom } from 'react-toastify';
+import { showErrorNotification } from '../Notification';
 
 class Searchbar extends Component {
   state = {
@@ -17,16 +17,7 @@ class Searchbar extends Component {
     const { query } = this.state;
     const { onSubmit } = this.props;
     if (!query.trim()) {
-      toast.error('Input search query.', {
-        position: 'top-center',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        transition: Zoom,
-      });
+      showErrorNotification('Input search query.', { position: 'top-center' });
       return this.setState({ query: '' });
     }
     onSubmit(query.trim().toLowerCase());
@@ -38,7 +29,7 @@ class Searchbar extends Component {
     return (
       <header className="Searchbar">
         <form className="SearchForm" onSubmit={this.handleSubmit}>
-          <button type="submit" className="SearchForm-button" disabled={!query}>
+          <button type="submit" className="SearchForm-button">
             <span className="SearchForm-button-label">Search</span>
           </button>
 
